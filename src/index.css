@@ -1,0 +1,149 @@
+@import 'tailwindcss';
+@config './../tailwind.config.ts';
+
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+:root {
+	--background: hsl(240, 4%, 11%);
+	--foreground: hsl(0 0% 95%);
+
+	--card: hsl(220 13% 12%);
+	--card-foreground: hsl(0 0% 95%);
+
+	--popover: hsl(220 13% 12%);
+	--popover-foreground: hsl(0 0% 95%);
+
+	--primary: hsl(235, 87%, 65%);
+	--primary-foreground: hsl(0 0% 100%);
+
+	--secondary: hsl(220 13% 15%);
+	--secondary-foreground: hsl(0 0% 95%);
+
+	--muted: hsl(220 13% 15%);
+	--muted-foreground: hsl(0 0% 65%);
+
+	--accent: hsl(235, 86%, 65%);
+	--accent-foreground: hsl(0 0% 100%);
+	--secondary: hsl(235, 41%, 38%);
+
+	--destructive: hsl(0 84.2% 60.2%);
+	--destructive-foreground: hsl(0 0% 95%);
+
+	--border: hsl(220 13% 20%);
+	--input: hsl(220 13% 15%);
+	--ring: hsl(235, 86%, 65%);
+
+	/* Custom design tokens */
+	--hero-bg: hsl(220 13% 6%);
+	--card-tile: hsl(220 13% 18%);
+	--text-highlight: hsl(235, 86%, 65%);
+	--text-muted: hsl(0 0% 70%);
+	--search-bg: hsl(220 13% 12%);
+	--gradient-primary: linear-gradient(135deg, hsl(235, 86%, 65%), hsl(235, 82%, 69%));
+	--shadow-glow: 0 0 40px hsl(235, 41%, 38% / 0.3);
+
+	--radius: 0.5rem;
+
+	--sidebar-background: hsl(0 0% 98%);
+
+	--sidebar-foreground: hsl(240 5.3% 26.1%);
+
+	--sidebar-primary: hsl(240 5.9% 10%);
+
+	--sidebar-primary-foreground: hsl(0 0% 98%);
+
+	--sidebar-accent: hsl(240 4.8% 95.9%);
+
+	--sidebar-accent-foreground: hsl(240 5.9% 10%);
+
+	--sidebar-border: hsl(220 13% 91%);
+
+	--sidebar-ring: hsl(217.2 91.2% 59.8%);
+}
+
+body {
+	@apply bg-background text-foreground;
+
+	text-rendering: optimizelegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	font-family: 'Albert Sans';
+
+	width: 100%;
+	min-height: 100vh;
+	user-select: none;
+
+	background: linear-gradient(#1b1b1d, #394087)
+}
+
+* {
+	transition: all 0.3s ease;
+}
+
+img {
+	pointer-events: none;
+}
+
+button {
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+	display: none;
+}
+
+.scrollbar-hide {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+	width: 60px;
+	aspect-ratio: 1;
+	--c: no-repeat linear-gradient(hsl(235, 87%, 65%) 0 0);
+	background: var(--c), var(--c), var(--c), var(--c);
+	animation:
+		l9-1 1.5s infinite,
+		l9-2 1.5s infinite;
+}
+
+@keyframes l9-1 {
+	0% {
+		background-size: 0 4px, 4px 0
+	}
+
+	25% {
+		background-size: 40px 4px, 4px 0
+	}
+
+	45%,
+	55% {
+		background-size: 40px 4px, 4px 42px
+	}
+
+	75% {
+		background-size: 0 4px, 4px 42px
+	}
+
+	100% {
+		background-size: 0 4px, 4px 0
+	}
+}
+
+@keyframes l9-2 {
+
+	0%,
+	49.9% {
+		background-position: 0 38px, 18px 18px, 100% 18px, right 18px bottom 18px
+	}
+
+	50%,
+	100% {
+		background-position: right 20px bottom 18px, 18px 100%, 20px 18px, right 18px top 0
+	}
+}

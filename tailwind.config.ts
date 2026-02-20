@@ -4,7 +4,7 @@ import plugin from 'tailwindcss/plugin';
 /** @type {import('tailwindcss').Config} */
 export default {
 	darkMode: 'class',
-	content: ['./pages/**/*.{ts,tsx}', './components/**/*.{ts,tsx}', './app/**/*.{ts,tsx}', './src/**/*.{ts,tsx}'],
+	content: ['./src/**/*.{ts,tsx}'],
 	prefix: '',
 	theme: {
 		container: {
@@ -49,21 +49,7 @@ export default {
 					DEFAULT: 'var(--card)',
 					foreground: 'var(--card-foreground)',
 				},
-				'hero-bg': 'var(--hero-bg)',
-				'card-tile': 'var(--card-tile)',
-				'text-highlight': 'var(--text-highlight)',
 				'text-muted': 'var(--text-muted)',
-				'search-bg': 'var(--search-bg)',
-				sidebar: {
-					DEFAULT: 'var(--sidebar-background)',
-					foreground: 'var(--sidebar-foreground)',
-					primary: 'var(--sidebar-primary)',
-					'primary-foreground': 'var(--sidebar-primary-foreground)',
-					accent: 'var(--sidebar-accent)',
-					'accent-foreground': 'var(--sidebar-accent-foreground)',
-					border: 'var(--sidebar-border)',
-					ring: 'var(--sidebar-ring)',
-				},
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -74,17 +60,21 @@ export default {
 				'accordion-down': {
 					from: {
 						height: '0',
+						opacity: '0',
 					},
 					to: {
 						height: 'var(--radix-accordion-content-height)',
+						opacity: '100',
 					},
 				},
 				'accordion-up': {
 					from: {
 						height: 'var(--radix-accordion-content-height)',
+						opacity: '100',
 					},
 					to: {
 						height: '0',
+						opacity: '0',
 					},
 				},
 				'scroll-diagonal': {
@@ -97,15 +87,19 @@ export default {
 				},
 			},
 			animation: {
-				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out',
+				'accordion-down': 'accordion-down 0.4s ease-in-out',
+				'accordion-up': 'accordion-up 0.4s ease-in-out',
 				'scroll-diagonal': 'scroll-diagonal 25s linear infinite',
+			},
+			textShadow: {
+				glow: '0 0 10px rgba(255, 255, 255, 0.5)',
+				'glow-lg': '0 0 20px rgba(255, 255, 255, 0.7)',
 			},
 		},
 	},
 	plugins: [
 		require('tailwindcss-animate'),
-		plugin(function ({ addBase }) {
+		plugin(({ addBase }) => {
 			addBase({
 				'*': {
 					borderColor: 'var(--border)',
@@ -113,6 +107,12 @@ export default {
 				body: {
 					backgroundColor: 'var(--background)',
 					color: 'var(--foreground)',
+				},
+				'.text-glow': {
+					'text-shadow': '0 0 10px rgba(255, 255, 255, 0.5)',
+				},
+				'.text-glow-lg': {
+					'text-shadow': '0 0 20px rgba(255, 255, 255, 0.7)',
 				},
 			});
 		}),
