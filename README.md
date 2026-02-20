@@ -1,6 +1,6 @@
 # @TEMPLATES
 
-## React Vike[Vike] Website with TypeScript
+## React Vite[Vike] Website with TypeScript
 
 There's not much to say here, you kind of just work out how things work along the way.
 
